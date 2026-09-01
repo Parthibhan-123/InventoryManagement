@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="auth-page" class="auth-page">
+      <div class="auth-card">
+        <div class="brand-block">
+          <span class="brand-badge">IM</span>
+          <div>
+            <p class="eyebrow">Inventory</p>
+            <h1>Management Suite</h1>
+          </div>
+        </div>
+
+        <div class="auth-switcher">
+          <button class="tab-button active" data-auth-tab="login" type="button">Login</button>
+          <button class="tab-button" data-auth-tab="signup" type="button">Sign Up</button>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="••••••••" required />
+          </label>
+          <button class="primary-btn" type="submit">Login</button>
+        </form>
+
+        <form id="signupForm" class="auth-form hidden">
+          <label>
+            Full name
+            <input type="text" name="name" placeholder="Jane Smith" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="At least 6 characters" required />
+          </label>
+          <button class="primary-btn" type="submit">Create account</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="app-page" class="app-page hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Operations</p>
+          <h2>Inventory Dashboard</h2>
+        </div>
+        <div class="topbar-actions">
+          <span id="userLabel" class="user-label">Guest</span>
+          <button id="logoutBtn" class="secondary-btn" type="button">Logout</button>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="summary-grid">
+          <article class="stat-card">
+            <span>Total Items</span>
+            <strong id="totalItems">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>Units in Stock</span>
+            <strong id="totalUnits">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>Inventory Value</span>
+            <strong id="inventoryValue">$0.00</strong>
+          </article>
+          <article class="stat-card warning">
+            <span>Low Stock</span>
+            <strong id="lowStockCount">0</strong>
+          </article>
+        </section>
+
+        <section class="panel form-panel">
+          <div class="panel-header">
+            <h3 id="formTitle">Add Inventory Item</h3>
+            <button id="cancelEditBtn" class="secondary-btn hidden" type="button">Cancel</button>
+          </div>
+
+          <form id="itemForm" class="item-form">
+            <div class="form-grid">
+              <label>
+                Item name
+                <input type="text" name="name" placeholder="Laptop Stand" required />
+              </label>
+              <label>
+                SKU
+                <input type="text" name="sku" placeholder="SKU-1001" required />
+              </label>
+              <label>
+                Category
+                <input type="text" name="category" placeholder="Electronics" />
+              </label>
+              <label>
+                Location
+                <input type="text" name="location" placeholder="Aisle A" />
+              </label>
+              <label>
+                Quantity
+                <input type="number" name="quantity" min="0" value="0" required />
+              </label>
+              <label>
+                Price
+                <input type="number" name="price" min="0" step="0.01" value="0" required />
+              </label>
+              <label>
+                Low stock threshold
+                <input type="number" name="lowStockThreshold" min="0" value="5" />
+              </label>
+              <label class="full-width">
+                Description
+                <textarea name="description" rows="3" placeholder="Brief item details"></textarea>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Save Item</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel table-panel">
+          <div class="panel-header">
+            <h3>Inventory List</h3>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>SKU</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Qty</th>
+                  <th>Price</th>
+                  <th>Low Stock</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="itemsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

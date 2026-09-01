@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": "cea36634-989f-4a73-863d-445b45db2e32",
+      "name": "Test User",
+      "email": "test@example.com",
+      "passwordHash": "$2a$10$4fm4nZCvEh/up.6qD2yilO0wv19T8htXt9T581/AC2itiVp3HXlbe",
+      "createdAt": "2026-09-01T05:03:59.589Z"
+    },
+    {
+      "id": "61186edd-575a-4ef0-b465-709edb67e3c8",
+      "name": "Second User",
+      "email": "seconduser@example.com",
+      "passwordHash": "$2a$10$Bt/1NhIYcX9CpC2fbJhtCOqfoVifvg4wekYS4XNfCOqRBQ3ZoJCym",
+      "createdAt": "2026-09-01T05:04:58.122Z"
+    }
+  ],
+  "items": [
+    {
+      "id": "bf8149d9-22ab-4835-9f0c-d1323a3c28ad",
+      "ownerId": "61186edd-575a-4ef0-b465-709edb67e3c8",
+      "name": "Laptop Stand",
+      "sku": "LS-1001",
+      "quantity": 12,
+      "price": 29.99,
+      "category": "Office",
+      "description": "Adjustable desk stand",
+      "location": "Aisle B",
+      "lowStockThreshold": 5,
+      "createdAt": "2026-09-01T05:04:58.134Z",
+      "updatedAt": "2026-09-01T05:04:58.134Z"
+    }
+  ]
+}
